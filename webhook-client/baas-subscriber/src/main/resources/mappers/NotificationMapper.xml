@@ -1,0 +1,96 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wf.baas.pay.mappers.NotificationMapper">
+
+
+	<resultMap id="notificationsMap" type="notification">
+		<result column="CLIENT" property="type"/>
+		<result column="TYPE" property="type"/>
+		<result column="STATUS" property="status"/>
+		<result column="COUNT" property="count" />
+	</resultMap>
+
+	<select id="getAllNotifications" resultMap="notificationsMap" statementType="PREPARED">
+	SELECT 
+    	CLIENT,TYPE, STATUS, COUNT
+	FROM
+    	NOTIFICATIONS
+    </select>
+
+	<select id="findNotificationsByClient" resultMap="notificationsMap" parameterType="String" statementType="PREPARED">
+	SELECT 
+    	CLIENT,TYPE, STATUS, COUNT
+	FROM
+    	NOTIFICATIONS
+    WHERE 
+    	CLIENT=#{client}
+    </select>
+
+    
+    <select id="findNotificationByType" resultMap="notificationsMap" parameterType="String" statementType="PREPARED">
+	SELECT 
+    	CLIENT,TYPE, STATUS, COUNT
+	FROM
+    	NOTIFICATIONS
+    WHERE 
+    	TYPE=#{type}
+    </select>
+    
+    <select id="findNotificationByTypeAndStatus" resultMap="notificationsMap" parameterType="String" statementType="PREPARED">
+	SELECT 
+    	CLIENT,TYPE, STATUS, COUNT
+	FROM
+    	NOTIFICATIONS
+    WHERE 
+    	TYPE=#{type} AND
+    	STATUS=#{status}
+    </select>
+    
+    <select id="findNotification" resultMap="notificationsMap" parameterType="notification" statementType="PREPARED">
+	SELECT 
+    	CLIENT,TYPE, STATUS, COUNT
+	FROM
+    	NOTIFICATIONS
+    WHERE 
+    	CLIENT=#{client} AND
+    	TYPE=#{type} AND
+    	STATUS=#{status}
+    </select>
+    
+	<insert id="createNotification" parameterType="notification"  useGeneratedKeys="false" statementType="PREPARED">
+		INSERT INTO NOTIFICATIONS(
+			CLIENT,TYPE, STATUS
+		) VALUES(
+			#{client},
+			#{type},
+			#{status}
+		);
+	</insert>
+	<update id="incrementNotification" parameterType="String" statementType="PREPARED">
+		UPDATE NOTIFICATIONS
+		SET COUNT =  COUNT  + 1
+		WHERE CLIENT=#{client} AND TYPE=  #{type} AND STATUS= #{status};
+	</update>
+	
+	<update id="updateNotification" parameterType="notification" statementType="PREPARED">
+		UPDATE NOTIFICATIONS
+		SET COUNT =  COUNT  + 1
+		WHERE CLIENT= #{client} AND TYPE=  #{type} AND STATUS= #{status};
+	</update>
+	
+	
+	<delete id="deleteNotificationByType" parameterType="String" statementType="PREPARED">
+		DELETE FROM NOTIFICATIONS WHERE TYPE = #{type};
+	</delete>
+	
+	<delete id="deleteNotificationByClient" parameterType="String" statementType="PREPARED">
+		DELETE FROM NOTIFICATIONS WHERE CLIENT = #{client};
+	</delete>
+	
+	
+	<delete id="deleteAllNotification">
+		DELETE FROM NOTIFICATIONS;
+	</delete>
+	
+</mapper>

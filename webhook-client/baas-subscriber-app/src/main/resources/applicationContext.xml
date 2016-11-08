@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		">
+
+	<import resource="classpath*:spring/baas-application-context.xml" />
+	<context:property-placeholder location="classpath:db.properties" />
+	<bean id="notificationController"
+		class="com.wf.baas.pay.rest.controller.NotificationController">
+		<property name="clientName" value="SPOTIFY"></property>
+	</bean>
+	
+	<bean id="notificationController1"
+		class="com.wf.baas.pay.rest.controller.NotificationController">
+		<property name="clientName" value="GOOGLE"></property>
+	</bean>
+	<bean id="notificationController2"
+		class="com.wf.baas.pay.rest.controller.NotificationController">
+		<property name="clientName" value="APPLE"></property>
+	</bean>
+	<bean id="notificationController3"
+		class="com.wf.baas.pay.rest.controller.NotificationController">
+		<property name="clientName" value="TRAVELEX"></property>
+	</bean>
+	
+	
+	
+</beans>

@@ -1,0 +1,39 @@
+.gridStyle {
+    width: 300px;
+    height: 300px;
+}
+.tbl-header
+{
+    font-weight: bolder;
+    float: left;
+    display: inline;
+    padding: 5px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
+}
+.bttn
+{
+	float:left; 
+	padding: 10px 10px 10px 10px;
+}
+.container
+{	
+	width:100%;
+	display: inline;
+	
+}
+.left-float {
+	float: left;
+    display: inline;
+    padding: 5px 5px 5px 5px;
+    border: aliceblue;
+    border-style: solid;
+    border-width: thin;
+    margin: 5px 5px 5px 5px;
+}
+
+
+.right-float{
+	float:right; 
+	display: inline;
+	padding : 10px 10px 10px 10px;
+}

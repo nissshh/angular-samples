@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+<meta charset="utf-8">
+<title>BaaS Subscriber Client - Counters</title>
+<!-- JQuery -->
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-1.8.0.js"></script>
+<!-- Angular  -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-touch.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+<!-- BootStrap -->
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- UI Grid -->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css" />
+<script type="text/javascript"
+	src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.js"></script>
+<!-- Application -->
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<script type="text/javascript" src="../js/main.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div ng-controller="GoogleCtrl" class="left-float">
+			<div class="container">
+				<div class="tbl-header">Google</div>
+				<div class="right-float">
+					<img ng-click="refresh()" src="../images/reload.png" height="16"
+						width="16">
+				</div>
+			</div>
+			<div class="gridStyle" ui-grid="gridOptions"></div>
+		</div>
+		<div ng-controller="AppleCtrl" class="left-float">
+			<div class="container">
+				<div class="tbl-header">Apple</div>
+				<div class="right-float">
+					<img ng-click="refresh()" src="../images/reload.png" height="16"
+						width="16">
+				</div>
+			</div>
+			<div class="gridStyle" ui-grid="gridOptions"></div>
+		</div>
+		<div ng-controller="TraveleXCtrl" class="left-float">
+			<div class="container">
+				<div class="tbl-header">Travel Ex</div>
+				<div class="right-float">
+					<img ng-click="refresh()" src="../images/reload.png" height="16"
+						width="16">
+				</div>
+			</div>
+			<div class="gridStyle" ui-grid="gridOptions"></div>
+		</div>
+	</div>
+</body>
+</html>
